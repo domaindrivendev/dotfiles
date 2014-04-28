@@ -1,0 +1,39 @@
+[core]
+	editor = vim
+[credentials]
+	helper = cache --timeout=3600
+[http]
+	sslVerify = false
+[push]
+	default = current
+[branch]
+	autosetuprebase = always
+[color]
+	ui = true
+	branch = auto
+	diff = auto
+	status = auto
+	interactive = auto
+[color "branch"]
+	current = yellow bold
+	local = green bold
+	remote = red bold
+[color "diff"]
+	meta = yellow bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+[color "status"]
+	added = green bold
+	changed = red bold
+	untracked = cyan bold
+[merge]
+        keepBackup = false
+        tool = custom
+[mergetool "custom"]
+        cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge "$PWD/$BASE" "$PWD/$REMOTE" "$PWD/$LOCAL" "$PWD/$MERGED"
+        keepTemporaries = false
+        trustExitCode = false
+        keepBackup = false
+[alias]
+  config-public = !git config user.name \"domaindrivendev\" && git config user.email domaindrivendev@gmail.com

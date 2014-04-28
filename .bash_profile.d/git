@@ -1,0 +1,47 @@
+c_cyan=`tput setaf 4`
+c_red=`tput setaf 1`
+c_green=`tput setaf 2`
+c_sgr0=`tput sgr0`
+c_bold=`tput bold`
+
+ 
+current_git_branch ()
+{
+	gitver=$(git branch 2>/dev/null| sed -n '/^\*/s/^\* //p')
+	echo -e $gitver
+}
+
+
+branch_status_color ()
+{
+	color=""
+
+	if git rev-parse --git-dir >/dev/null 2>&1
+		then
+			if git diff --quiet 2>/dev/null >&2 
+				then
+					color="${c_green}"
+				else
+					color="${c_red}"
+			fi
+	fi
+	echo -ne $color
+}
+
+
+branch_markup ()
+{
+	if git rev-parse --git-dir >/dev/null 2>&1
+		then
+			branchPrompt=$(__git_ps1)
+		else
+			return 0
+	fi
+	echo -ne $branchPrompt
+}
+
+GIT_PS1_SHOWDIRTYSTATE=1
+GIT_PS1_SHOWSTASHSTATE=1
+GIT_PS1_SHOWUNTRACKEDFILES=1
+
+PS1='\n\[${c_cyan}\]\[${c_bold}\]\u@\h:\[${c_sgr0}\]\[${c_bold}\]\w \[$(branch_status_color)\]$(branch_markup)\[${c_sgr0}${c_bold}\]>\[${c_sgr0}\] '
