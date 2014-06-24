@@ -1,5 +1,6 @@
 [core]
 	editor = vim
+ excludesfile = /opt/boxen/config/git/gitignore
 [credentials]
 	helper = cache --timeout=3600
 [http]
@@ -36,4 +37,15 @@
         trustExitCode = false
         keepBackup = false
 [alias]
-  config-public = !git config user.name \"domaindrivendev\" && git config user.email domaindrivendev@gmail.com
+	config-public = !git config user.name \"domaindrivendev\" && git config user.email domaindrivendev@gmail.com
+	l = !git log --pretty=format:'%C(red)%h%Creset - %s %C(green)%ar%Creset %C(bold blue)<%an>%Creset' --abbrev-commit
+
+[hub]
+protocol = https
+
+[user]
+name = domaindrivendev
+email = domaindrivendev@gmail.com
+
+[credential]
+helper = /opt/boxen/bin/boxen-git-credential
