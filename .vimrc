@@ -17,6 +17,9 @@ Plugin 'thoughtbot/vim-rspec'
 Plugin 'tpope/vim-rails'
 Plugin 'slim-template/vim-slim'
 Plugin 'kchmck/vim-coffee-script'
+Plugin 'tpope/vim-git'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-cucumber'
 
 " General
 " ==========
@@ -24,7 +27,8 @@ let mapleader=","
 inoremap jk <ESC>
 syntax enable
 filetype plugin indent on
-
+set statusline=%F\ %L\L
+set laststatus=2
 
 " Editor
 " ==========
@@ -53,6 +57,16 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+
+nnoremap <leader>wh <C-w>h
+nnoremap <leader>wj <C-w>j
+nnoremap <leader>wk <C-w>k
+nnoremap <leader>wl <C-w>l
+
+nnoremap <leader>sh :leftabove vnew<CR>
+nnoremap <leader>sl :rightbelow vnew<CR>
+nnoremap <leader>sk :leftabove new<CR>
+nnoremap <leader>sj :rightbelow new<CR>
 
 " nerdtree
 nnoremap <C-n> :NERDTreeToggle<cr>
@@ -98,3 +112,6 @@ map <Leader>rl :call RunLastSpec()<cr><c-L>
 " Rails Utils
 map <leader>rr :RV<cr>
 map <leader>ra :AV<cr>
+
+nmap <leader>t :CtrlP<CR>
+nmap <leader>q :q<CR>

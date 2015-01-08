@@ -12,7 +12,7 @@ export TERM=screen-256color
 # Aliases
 alias be="bundle exec "
 
-alias umlet="/Applications/Umlet/umlet.sh"
+alias umlet="/Applications/Umlet/umlet.sh &"
 
 alias pair="pair.sh "
 alias dprof="switch_profile.sh Default"
@@ -21,6 +21,8 @@ alias dzone="open smb://eng-backup01"
 # tmux
 alias tms="tmux_session.sh "
 alias tmh="tmux split-window -t 0 -h -p 25"
+
+alias bbsh="~/src/gc/script/bbsh"
 
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
@@ -88,3 +90,6 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
 source /opt/boxen/env.sh
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
