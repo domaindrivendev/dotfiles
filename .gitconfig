@@ -44,8 +44,8 @@
 protocol = https
 
 [user]
-name = domaindrivendev
-email = domaindrivendev@gmail.com
+	name = domaindrivendev
+	email = domaindrivendev@gmail.com
 
 [credential]
 helper = /opt/boxen/bin/boxen-git-credential

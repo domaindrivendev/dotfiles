@@ -1,5 +1,4 @@
 set nocompatible
-filetype off
 
 " Vundle setup
 set rtp+=~/.vim/bundle/Vundle.vim/
@@ -20,6 +19,7 @@ Plugin 'kchmck/vim-coffee-script'
 Plugin 'tpope/vim-git'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-cucumber'
+Plugin 'tpope/vim-endwise'
 
 " General
 " ==========
@@ -74,6 +74,7 @@ let g:NERDTreeWinSize = 50
 let g:NERDTreeShowHidden = 1
 
 " ctrlP
+let g:ctrlp_working_path_mode = 0
 let g:ctrlp_open_new_file = 'r'
 let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:10,results:10'
 autocmd BufWritePost * CtrlPClearCache
@@ -104,6 +105,7 @@ map <leader>fr *:%s//
 
 " Rspec utils
 let s:rspec_tmux_command = "tmux send -t 1 'be rspec --color --drb {spec}' Enter" 
+"let s:rspec_tmux_command = "tmux send -t 1 'zeus test --color --drb {spec}' Enter" 
 let g:rspec_command = "!echo " . s:rspec_tmux_command . " && " . s:rspec_tmux_command
 map <Leader>rf :call RunCurrentSpecFile()<cr><c-L>
 map <Leader>rn :call RunNearestSpec()<cr><c-L>
@@ -115,3 +117,7 @@ map <leader>ra :AV<cr>
 
 nmap <leader>t :CtrlP<CR>
 nmap <leader>q :q<CR>
+
+" File type associations
+au BufRead,BufNewFile *.hamljs set filetype=haml
+au BufRead,BufNewFile *.thor set filetype=ruby
